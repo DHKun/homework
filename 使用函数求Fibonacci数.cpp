@@ -11,17 +11,18 @@ int main()
 
     return 0;
 }
-int fib(int n)
-{
-    int m=1,h=1,i=1;
-    int s;
-    if(n<=2)
+int fib( int n ){
+int a=1;
+int b=1;
+int c;
+int i;
+ if (n == 1 || n == 2) {
         return 1;
-    else
-    for(;i<=n-2;i++)
-    {
-        s=m+h;m=h;h=s;
     }
-    return s;
+for(i=3;i<=n;i++){
+    c=a+b;
+    a=b;
+    b=c;
 }
-
+return c;
+}
