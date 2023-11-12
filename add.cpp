@@ -3,7 +3,7 @@
 int main(){
 	double x,m,s;
 	int n,f;
-	const doouble eps;
+	const double eps;
 	scanf("%f",x);
 	n=0;
 	m=1;
