@@ -3,6 +3,7 @@
 // 计算一个数的因子和
 int factorsum(int number) {
     int sum = 1;
+    if(number<=1)return 0;
     for (int i = 2; i <= number / 2; i++) {
         if (number % i == 0) {
             sum += i;
