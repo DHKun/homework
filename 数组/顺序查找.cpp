@@ -1,6 +1,6 @@
 #include <stdio.h>
 #define SIZE 5
-int sequentialSearch(int a[],int n,int target) {
+int search(int a[],int n,int target) {
     for (int i=0;i<n;i++) {
         if (a[i]==target) {
             return i;
@@ -18,14 +18,14 @@ int main() {
     }
     printf("数组：");
     for (int i=0; i<SIZE;i++) {
-    printf("%d ", a[i]);
+    printf("%d ",a[i]);
     }
     printf("\n");
     int target;
     printf("要查找的元素：");
     scanf("%d",&target);
     printf("查找的元素：%d\n",target);
-    int index = sequentialSearch(a,SIZE,target);
+    int index=search(a,SIZE,target);
     if (index != -1) {
         printf("目标元素位置：%d\n",index);
     } else {
