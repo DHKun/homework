@@ -63,5 +63,6 @@
     "limits": "cpp",
     "algorithm": "cpp",
     "iostream": "cpp"
-  }
+  },
+  "github-enterprise.uri": "https://gitee.com"
 }
