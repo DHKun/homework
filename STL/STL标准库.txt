@@ -61,3 +61,45 @@ prev_permutation：生成容器或数组中上一个排列，返回布尔值表示是否成功。
 nth_element：对容器或数组进行部分排序，使第n个元素处于正确的位置。
 
 以上是algorithm头文件中常用的函数，还有其他一些函数，如find、replace、for_each等，可以根据需要选择使用。这些函数大大简化了对数据结构的操作，提高了程序的效率和可读性。
+
+
+
+
+使用Set库，您可以执行以下常见操作：
+
+插入元素：通过insert()函数向Set中插入一个元素。
+#include <set>
+std::set<int> mySet;
+mySet.insert(10); // 在Set中插入元素10
+mySet.insert(20); // 在Set中插入元素20
+
+
+删除元素：通过erase()函数从Set中删除一个元素。
+mySet.erase(10); // 从Set中删除元素10
+
+
+查找元素：通过find()函数查找Set中的一个元素。
+std::set<int>::iterator it = mySet.find(20);
+if (it != mySet.end()) {
+    // 元素20存在于Set中
+} else {
+    // 元素20不存在于Set中
+}
+
+
+获取Set中元素的个数：通过使用size()函数获取Set中元素的个数。
+int count = mySet.size(); // 获取Set中元素的个数
+
+
+遍历Set：通过使用迭代器（iterator）遍历Set中的元素。
+for (std::set<int>::iterator it = mySet.begin(); it != mySet.end(); ++it) {
+    int element = *it;
+    // 对每个元素执行操作
+}
+
+
+清空Set：通过使用clear()函数清空Set中的所有元素。
+mySet.clear(); // 清空Set中的所有元素
+
+
+Set的优点是能够快速地插入、删除和查找元素，并且能够自动处理元素的排序和去重。它可以在许多应用中使用，如去重、查找唯一元素等。
