@@ -1,11 +1,11 @@
 #include<stdio.h>
-void pailieshengxu(int a[],int n);
+void pailiejiangxu(int a[],int n);
 int main(){
 	int a[10]={11,5,3,1,4,7,9,15,2,6};
-	pailieshengxu(a,10);	
+	pailiejiangxu(a,10);	
 		return 0;
 }
-void pailieshengxu(int a[],int n){
+void pailiejiangxu(int a[],int n){
 	int t;
 	int j=0;
 	int i;
