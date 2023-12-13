@@ -1,33 +1,42 @@
 #include<iostream>
 using namespace std;
-typedef struct student{
+
+struct student{
     int no;
     char na[100];
     int score;
     int sex;
-}STU;//以学生成绩为关键字进行排序
+};
+
+//按成绩从大到小排序
+void paixu(student stu[], int n){
+    student temp;
+    for (int i=0; i<n-1; i++) {
+        for (int j=0; j<n-i-1; j++) {
+            if (stu[j].score<stu[j+1].score) {
+                temp=stu[j];
+                stu[j]=stu[j+1];
+                stu[j+1]=temp;
+            }
+        }
+    }
+}
+
 int main(){
-    // STU pupil;
-    // pupil.no=1001;
-    // pupil.na="Tom";
-    // pupil.sex='m';
-    // pupil.score=90;
-    STU stu[20];
-    for(int i=0;i<3;i++){
-        printf("num:\n");
-        scanf("%d",&stu[i].no);
-        printf("name:\n");
-        scanf("%s",&stu[i].na);
-        printf("score:\n");
-        scanf("%d",&stu[i].score);
-        printf("sex:\n");
-        scanf("%d",&stu[i].sex);
+    student stu[size];
+    for(int i=0; i<3; i++){
+        cout << "num:" << endl;
+        cin >> stu[i].no;
+        cout << "name:" << endl;
+        cin >> stu[i].na;
+        cout << "score:" << endl;
+        cin >> stu[i].score;
+        cout << "sex:" << endl;
+        cin >> stu[i].sex;
     }
-    for(int j=0;j<3;j++){
-        printf("")
-        printf("num:%d\n",stu[j].no);
-        printf("name:%s\n",stu[j].na);
-        printf("score:%d\n",stu[j].score);
-        printf("sex:%d\n",stu[j].sex);
+    MAX(stu, size);
+    for(int j=0; j<size; j++){
+        cout << "num: " << stu[j].no << " name: " << stu[j].na << " score: "  << stu[j].score << " sex: "<< stu[j].sex << endl;
     }
+    return 0;
 }

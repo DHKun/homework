@@ -101,5 +101,6 @@
     "streambuf": "cpp",
     "typeinfo": "cpp"
   },
-  "github-enterprise.uri": "https://gitee.com"
+  "github-enterprise.uri": "https://gitee.com",
+  "cSpell.language": "en,lorem,en-US,en-GB"
 }
