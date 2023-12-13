@@ -13,6 +13,7 @@ void MIN(int a[]);
 int main() {
     int a[SIZE];
     printf("输入%d个数：\n",SIZE);
+    
     for (int i=0; i<SIZE; i++) {
         scanf("%d", &a[i]);
     }//input
@@ -27,8 +28,8 @@ int main() {
     //顺序查找
     //int target;
     //scanf("%d",&target);
-    //int index=searc;h(a,SIZE,target);
-    // if (index != -1) {
+    //int index=shunxusearch(a,SIZE,target);
+    // if (index!=-1) {
     //     printf("目标元素位置：%d\n",index);
     // } else {
     //     printf("error\n");
@@ -36,8 +37,8 @@ int main() {
 
     //二分法查找
     //int target=0;
-    //scanf("%d",&d);
-    // int result=erfensearch(a, target); 
+    //scanf("%d",&target);
+    // int result=erfensearch(a,target); 
     // if (result==-1) { 
     //     printf("目标元素不存在");
     // }
@@ -99,17 +100,17 @@ void maopaojiangxu(int a[],int n){
 	}
 }
 
-void xuanzepaixu(int a[],int n) {
-    for (int i=0; i<n-1;i++) {
+void xuanzepaixu(int a[],int n){
+    for (int i=0;i<n-1;i++){
         int max=i;
-        for (int j = i + 1; j < n; j++) {
-            if (a[j]>a[max]) {
-                max=j;
+        for(int j=i+1;j<n;j++){
+            if(a[j]>a[max]) {
+               max=j;
             }
         }
         int temp=a[i];
         a[i]=a[max];
-        a[max] = temp;
+        a[max]=temp;
     }
 }
 
@@ -126,7 +127,7 @@ int erfensearch(int a[],int target){
     int left=0;
     int right=SIZE-1;
     while(left<=right){ 
-        int mid=left+(right-left) / 2;
+        int mid=left+(right-left)/2;
         if(a[mid]==target) {
             return mid;
         }
