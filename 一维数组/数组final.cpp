@@ -10,7 +10,7 @@ int erfensearch(int a[],int target);//二分法查找
 void MAX(int a[]);
 void MIN(int a[]);
 
-int main() {
+int main(){
     int a[SIZE];
     printf("输入%d个数：\n",SIZE);
     
