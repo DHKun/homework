@@ -18,7 +18,7 @@ void MIN(student stu[]);
 int main(){
     student stu[size];
     
-    for(int i=0; i<size; i++){
+    for(int i=0;i<size;i++){
         cout << "num:" << endl;
         cin >> stu[i].no;
         cout << "name:" << endl;
@@ -62,8 +62,8 @@ int main(){
     //×îĞ¡Öµ
     //MIN(stu);
 
-    for(int j=0; j<size; j++){
-        cout << "num: " << stu[j].no << " name: " << stu[j].na << " score: "  << stu[j].score << endl;
+    for(int j=0;j<size;j++){
+        cout << "num: " << stu[j].no << "name: " << stu[j].na << "score: "  << stu[j].score << endl;
     }
 
     return 0;

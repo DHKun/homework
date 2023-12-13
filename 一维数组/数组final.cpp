@@ -14,13 +14,13 @@ int main() {
     int a[SIZE];
     printf("输入%d个数：\n",SIZE);
     
-    for (int i=0; i<SIZE; i++) {
-        scanf("%d", &a[i]);
+    for(int i=0;i<SIZE;i++) {
+        scanf("%d",&a[i]);
     }//input
 
     //冒泡排序
-    // maopaoshengxu(a,SIZE);
-    // maopaojiangxu(a,SIZE);
+    //maopaoshengxu(a,SIZE);
+    //maopaojiangxu(a,SIZE);
 
     //选择排序
     //xuanzepaixu(a,SIZE);
@@ -54,7 +54,7 @@ int main() {
     //MIN(a);
 
     for (int i=0; i<SIZE;i++) {
-        printf("%d ",a[i]);
+       printf("%d ",a[i]);
     }//output
 
     return 0;
@@ -73,7 +73,7 @@ void maopaoshengxu(int a[],int n){
 				a[j+1]=t;
 			}
 		}
-		for(f=0;f<10;f++){
+		for(f=0;f<n;f++){
 			printf("%d ",a[f]);
 		}
 		printf("\n");	
