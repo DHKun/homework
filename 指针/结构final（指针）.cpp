@@ -1,7 +1,6 @@
 #include<iostream>
 #include<iomanip>
 
-
 #define size 4
 using namespace std;
 
@@ -11,17 +10,17 @@ struct student{
     int score;
 };
 
-void print(student stu[],int n);
-void maopaopaixu(student stu[],int n);//√∞≈›≈≈–Ú
-void xuanzepaixu(student stu[],int n);//—°‘Ò≈≈–Ú
-void shunxusearch(student stu[],int n,int target);//À≥–Ú≤È’“
+void print(student* stu,int n);
+void maopaopaixu(student* stu,int n);//√∞≈›≈≈–Ú
+void xuanzepaixu(student* stu,int n);//—°‘Ò≈≈–Ú
+void shunxusearch(student* stu,int n,int target);//À≥–Ú≤È’“
 void erfensearch(student stu[],int target);//∂˛∑÷∑®≤È’“
-void MAX(student stu[]);
-void MIN(student stu[]);
+void MAX(student* stu);
+void MIN(student* stu);
 
 int main(){
     student stu[size]={{1601,"TINA",34},{1023,"TOM",35},{1008,"JERRY",36},{1021,"SAM",37}};
-
+    
     // for(int i=0;i<size;i++){
     //     cout << "—ß∫≈:" << endl;
     //     cin >> stu[i].no;
@@ -58,7 +57,7 @@ int main(){
     return 0;
 }
 
-void print(student a[],int n){
+void print(student* a,int n){
 	student* p;
 	cout<<setw(7)<<"—ß∫≈"<<setw(7)<<"–’√˚"<<setw(7)<<"≥…º®"<<endl;
 	for(p=a;p<a+n;p++){
@@ -66,39 +65,42 @@ void print(student a[],int n){
 	}
 }
 
-void maopaopaixu(student stu[], int n){
+void maopaopaixu(student* stu, int n){
+    student* p=stu;
     student temp;
     for(int i=0;i<n-1;i++) {
         for(int j=0;j<n-i-1;j++) {
-            if (stu[j].score<stu[j+1].score) {
-                temp=stu[j];
-                stu[j]=stu[j+1];
-                stu[j+1]=temp;
+            if ((p+j)->score<(p+j+1)->score) {
+                temp=*(p+j);
+                *(p+j)=*(p+j+1);
+                *(p+j+1)=temp;
             }
         }
     }
-    print(stu,size);
+    print(p,size);
 }
 
-void xuanzepaixu(student stu[],int n){
+void xuanzepaixu(student* stu,int n){
+    student* p=stu;
     for(int i=0;i<n-1;i++){
         int max=i;
         for(int j=i+1;j<n;j++){
-            if(stu[j].score>stu[max].score) {
+            if((p+j)->score>(p+max)->score) {
                 max=j;
             }
         }
-        student temp=stu[i];
-        stu[i]=stu[max];
-        stu[max]=temp;
+        student temp=*(p+i);
+        *(p+i)=*(p+max);
+        *(p+max)=temp;
     }
-    print(stu,size);
+    print(p,size);
 }
 
-void shunxusearch(student stu[],int n,int target){
+void shunxusearch(student* stu,int n,int target){
+    student *p=stu;
     int index;
     for(int i=0;i<n;i++){
-        if(stu[i].score==target){
+        if((p+i)->score==target){
             index=i;break;
         }else{
             index=-1;
@@ -111,22 +113,23 @@ void shunxusearch(student stu[],int n,int target){
     }
 }
 
-void erfensearch(student stu[],int target){
+void erfensearch(student* stu,int target){
+    student* p=stu;
     int coin=0;
     int left=0;
     int right=size-1;
     int result=-1;
-    if(stu[0].score<stu[1].score){
+    if(p->score<(p+1)->score){
         coin=1;
     }else{
         coin=-1;
     }
     while(left<=right&&coin==1){ 
         int mid=left+(right-left)/2;
-        if(stu[mid].score==target) {
+        if((p+mid)->score==target) {
             result=mid;break;
         }
-        else if(stu[mid].score<target) {
+        else if((p+mid)->score<target) {
             left=mid+1;
         }
         else{
@@ -135,10 +138,10 @@ void erfensearch(student stu[],int target){
     }
     while(left<=right&&coin==-1){ 
         int mid=left+(right-left)/2;
-        if(stu[mid].score==target) {
+        if((p+mid)->score==target) {
             result=mid;break;
         }
-        else if(stu[mid].score<target) {
+        else if((p+mid)->score<target) {
             right=mid-1;
         }
         else{
@@ -153,22 +156,24 @@ void erfensearch(student stu[],int target){
     }
 }
 
-void MAX(student stu[]){
+void MAX(student* stu){
+    student* p=stu;
     int MAX=0;
     for(int i=0;i<size;i++){
-        if(stu[MAX].score<stu[i].score){
+        if((p+MAX)->score<(p+i)->score){
             MAX=i;
         }
     }
-    cout<< "MAX is" << stu[MAX].score << endl;
+    cout<< "MAX is" << (p+MAX)->score << endl;
 }
 
-void MIN(student stu[]){
+void MIN(student* stu){
+    student *p=stu;
     int MIN=0;
     for(int i=0;i<size;i++){
-        if(stu[MIN].score>stu[i].score){
+        if((p+MIN)->score>(p+i)->score){
             MIN=i;
         }
     }
-    cout << "MIN is" << stu[MIN].score << endl;
+    cout << "MIN is" << (p+MIN)->score << endl;
 }
