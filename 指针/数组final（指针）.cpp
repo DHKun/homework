@@ -2,185 +2,232 @@
 
 #define SIZE 4
 
-void print(int* a,int n);
-void maopaoshengxu(int* a,int n);//Ã°ÅİÉıĞòÅÅĞò
-void maopaojiangxu(int* a,int n);//Ã°Åİ½µĞòÅÅĞò
-void xuanzepaixu(int* a,int n);//Ñ¡ÔñÅÅĞò
-void shunxusearch(int* a,int n,int target);//Ë³Ğò²éÕÒ
-void erfensearch(int* a,int target);//¶ş·Ö·¨²éÕÒ
-void MAX(int* a);
-void MIN(int* a);
+void print(int *a, int n);
+void maopaoshengxu(int *a, int n);            // å†’æ³¡å‡åºæ’åº
+void maopaojiangxu(int *a, int n);            // å†’æ³¡é™åºæ’åº
+void xuanzepaixu(int *a, int n);              // é€‰æ‹©æ’åº
+void shunxusearch(int *a, int n, int target); // é¡ºåºæŸ¥æ‰¾
+void erfensearch(int *a, int target);         // äºŒåˆ†æ³•æŸ¥æ‰¾
+void MAX(int *a);
+void MIN(int *a);
 
-int main(){
+int main()
+{
     int a[SIZE];
-    printf("ÊäÈë%d¸öÊı£º\n",SIZE);
-    
-    for(int i=0;i<SIZE;i++) {
-        scanf("%d",&a[i]);
-    }//input
+    printf("è¾“å…¥%dä¸ªæ•°ï¼š\n", SIZE);
 
-    //Ã°ÅİÅÅĞò
-    //maopaoshengxu(a,SIZE);
-    //maopaojiangxu(a,SIZE);
+    for (int i = 0; i < SIZE; i++)
+    {
+        scanf("%d", &a[i]);
+    } // input
 
-    //Ñ¡ÔñÅÅĞò
-    //xuanzepaixu(a,SIZE);
+    // å†’æ³¡æ’åº
+    // maopaoshengxu(a,SIZE);
+    // maopaojiangxu(a,SIZE);
 
-    //Ë³Ğò²éÕÒ
-    // int target;
-    // scanf("%d",&target);
-    // shunxusearch(a,SIZE,target);
+    // é€‰æ‹©æ’åº
+    // xuanzepaixu(a,SIZE);
 
-    //¶ş·Ö·¨²éÕÒ
-    // int target=0;
-    // scanf("%d",&target);
-    // erfensearch(a,target); 
+    // é¡ºåºæŸ¥æ‰¾
+    //  int target;
+    //  scanf("%d",&target);
+    //  shunxusearch(a,SIZE,target);
 
-    //×î´óÖµ
-    // MAX(a);
+    // äºŒåˆ†æ³•æŸ¥æ‰¾
+    //  int target=0;
+    //  scanf("%d",&target);
+    //  erfensearch(a,target);
 
-    //×îĞ¡Öµ
-    //MIN(a);
+    // æœ€å¤§å€¼
+    //  MAX(a);
 
-    //print(a,SIZE);//output
+    // æœ€å°å€¼
+    // MIN(a);
+
+    // print(a,SIZE);//output
 
     return 0;
 }
 
-void print(int* a,int n){
-    int* p;
-     for(p=a;p<a+n;p++) {
-       printf("%d ",*p);
+void print(int *a, int n)
+{
+    int *p;
+    for (p = a; p < a + n; p++)
+    {
+        printf("%d ", *p);
     }
 }
 
-void maopaoshengxu(int* a,int n){
-    int* p;
-	int t;
-	int j=0;
-	int i;
-	int f;
-	for(i=0;i<n-1;i++){
-		for(j=0;j<n-i-1;j++){
-			if(*(a+j)>*(a+j+1)){
-				t=*(a+j);
-				*(a+j)=*(a+j+1);
-				*(a+j+1)=t;
-			}
-		}
-    }
-	print(a,SIZE);
-	printf("\n");	
-}
-
-void maopaojiangxu(int* a,int n){
-    int* p;
-	int t;
-	int j=0;
-	int i;
-	int f;
-	for(i=0;i<n-1;i++){
-		for(j=0;j<n-i-1;j++){
-			if(*(a+j)<*(a+j+1)){
-				t=*(a+j);
-				*(a+j)=*(a+j+1);
-				*(a+j+1)=t;
-			}
-		}
-    }
-	print(a,SIZE);
-	printf("\n");
-}
-
-void xuanzepaixu(int* a,int n){
-    for (int i=0;i<n-1;i++){
-        int max=i;
-        for(int j=i+1;j<n;j++){
-            if(*(a+j)>*(a+max)) {
-               max=j;
+void maopaoshengxu(int *a, int n)
+{
+    int *p;
+    int t;
+    int j = 0;
+    int i;
+    int f;
+    for (i = 0; i < n - 1; i++)
+    {
+        for (j = 0; j < n - i - 1; j++)
+        {
+            if (*(a + j) > *(a + j + 1))
+            {
+                t = *(a + j);
+                *(a + j) = *(a + j + 1);
+                *(a + j + 1) = t;
             }
         }
-        int temp=*(a+i);
-        *(a+i)=*(a+max);
-        *(a+max)=temp;
     }
-    print(a,SIZE);
+    print(a, SIZE);
+    printf("\n");
 }
 
-void shunxusearch(int* a,int n,int target){
-    int index;
-    for(int i=0;i<n;i++){
-        if (*(a+i)==target){
-            index=i;break;
-        }else{
-            index=-1;
+void maopaojiangxu(int *a, int n)
+{
+    int *p;
+    int t;
+    int j = 0;
+    int i;
+    int f;
+    for (i = 0; i < n - 1; i++)
+    {
+        for (j = 0; j < n - i - 1; j++)
+        {
+            if (*(a + j) < *(a + j + 1))
+            {
+                t = *(a + j);
+                *(a + j) = *(a + j + 1);
+                *(a + j + 1) = t;
+            }
         }
     }
-    if (index!=-1) {
-        printf("Ä¿±êÔªËØÔÚµÚ%d¸ö\n",index+1);
-    } else {
+    print(a, SIZE);
+    printf("\n");
+}
+
+void xuanzepaixu(int *a, int n)
+{
+    for (int i = 0; i < n - 1; i++)
+    {
+        int max = i;
+        for (int j = i + 1; j < n; j++)
+        {
+            if (*(a + j) > *(a + max))
+            {
+                max = j;
+            }
+        }
+        int temp = *(a + i);
+        *(a + i) = *(a + max);
+        *(a + max) = temp;
+    }
+    print(a, SIZE);
+}
+
+void shunxusearch(int *a, int n, int target)
+{
+    int index;
+    for (int i = 0; i < n; i++)
+    {
+        if (*(a + i) == target)
+        {
+            index = i;
+            break;
+        }
+        else
+        {
+            index = -1;
+        }
+    }
+    if (index != -1)
+    {
+        printf("ç›®æ ‡å…ƒç´ åœ¨ç¬¬%dä¸ª\n", index + 1);
+    }
+    else
+    {
         printf("error\n");
     }
 }
 
-void erfensearch(int* a,int target){
-    int left=0;
-    int right=SIZE-1;
-    int coin=0;
-    int result=-1;
-    if(*a<*(a+1)){
-        coin=1;
-    }else{
-        coin=-1;
+void erfensearch(int *a, int target)
+{
+    int left = 0;
+    int right = SIZE - 1;
+    int coin = 0;
+    int result = -1;
+    if (*a < *(a + 1))
+    {
+        coin = 1;
     }
-    while(left<=right&&coin==1){ 
-        int mid=left+(right-left)/2;
-        if(*(a+mid)==target) {
-            result=mid;break;
-        }
-        else if(*(a+mid)<target) {
-            left=mid+1;
-        }
-        else{
-            right=mid-1;
-        }
+    else
+    {
+        coin = -1;
     }
-    while(left<=right&&coin==-1){ 
-        int mid=left+(right-left)/2;
-        if(*(a+mid)==target) {
-            result=mid;break;
+    while (left <= right && coin == 1)
+    {
+        int mid = left + (right - left) / 2;
+        if (*(a + mid) == target)
+        {
+            result = mid;
+            break;
         }
-        else if(*(a+mid)<target) {
-            right=mid-11;
+        else if (*(a + mid) < target)
+        {
+            left = mid + 1;
         }
-        else{
-            left=mid+1;
+        else
+        {
+            right = mid - 1;
         }
     }
-    if(result==-1){ 
-        printf("Ä¿±êÔªËØ²»´æÔÚ");
+    while (left <= right && coin == -1)
+    {
+        int mid = left + (right - left) / 2;
+        if (*(a + mid) == target)
+        {
+            result = mid;
+            break;
+        }
+        else if (*(a + mid) < target)
+        {
+            right = mid - 11;
+        }
+        else
+        {
+            left = mid + 1;
+        }
     }
-    else{
-        printf("Ä¿±êÔªËØÔÚµÚ%d¸ö",result+1);
+    if (result == -1)
+    {
+        printf("ç›®æ ‡å…ƒç´ ä¸å­˜åœ¨");
+    }
+    else
+    {
+        printf("ç›®æ ‡å…ƒç´ åœ¨ç¬¬%dä¸ª", result + 1);
     }
 }
 
-void MAX(int* a){
-    int MAX=0;
-    for(int i=0;i<SIZE;i++){
-        if(*(a+MAX)<*(a+i)){
-            MAX=i;
+void MAX(int *a)
+{
+    int MAX = 0;
+    for (int i = 0; i < SIZE; i++)
+    {
+        if (*(a + MAX) < *(a + i))
+        {
+            MAX = i;
         }
     }
-    printf("MAX is %d\n",*(a+MAX));
+    printf("MAX is %d\n", *(a + MAX));
 }
 
-void MIN(int* a){
-    int MIN=0;
-    for(int i=0;i<SIZE;i++){
-        if(*(a+MIN)>*(a+i)){
-            MIN=i;
+void MIN(int *a)
+{
+    int MIN = 0;
+    for (int i = 0; i < SIZE; i++)
+    {
+        if (*(a + MIN) > *(a + i))
+        {
+            MIN = i;
         }
     }
-    printf("MIN is %d\n",*(a+MIN));
+    printf("MIN is %d\n", *(a + MIN));
 }

@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": true,
-      "cwd": "d:/Gitspace/homework",
-      "program": "d:/Gitspace/homework/build/Debug/outDebug",
+      "cwd": "d:/Gitspace/homework/函数",
+      "program": "d:/Gitspace/homework/函数/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [
